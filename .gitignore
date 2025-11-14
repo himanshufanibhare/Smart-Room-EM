@@ -1,0 +1,38 @@
+# ---- Python build & cache ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ---- Virtual environments ----
+venv/
+env/
+.venv/
+
+# ---- Environment variables ----
+.env
+
+# ---- Logs ----
+*.log
+*.out
+*.err
+om2m_log.txt
+
+# ---- VSCode / Editor ----
+.vscode/
+.idea/
+
+# ---- System files ----
+.DS_Store
+Thumbs.db
+
+# ---- Backup / Temp files ----
+*.bak
+*.tmp
+*~
