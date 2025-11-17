@@ -20,11 +20,11 @@ This project reads energy meter values over a Modbus RTU serial connection and s
 - Meters configured for Modbus RTU.
 
 **Installation**
-1. Create and activate a virtual environment (PowerShell):
+1. Create and activate a virtual environment (macOS / Linux):
 
 ```
 python -m venv .venv
-.\.venv\Scripts\Activate
+source .venv/bin/activate
 ```
 
 2. Install dependencies:
@@ -107,34 +107,18 @@ Note: the ordering of the measurement values in the sent list matches the iterat
 If you need to adapt payload structure, edit `sr-em.py` to shape `send_list` differently or update `Om2mHandler.create_cin` accordingly.
 
 **Running the script**
-From PowerShell in the project folder with the venv activated:
+From the project folder with the venv activated:
 
 ```
 python sr-em.py
 ```
 
-If you need to use a different serial port on Windows, edit `CONFIG['modbus']['port']` and set e.g. `"COM3"`.
-
-PowerShell snippet to run (full flow):
-
-```
-# Activate venv
-.\.venv\Scripts\Activate
-# Run
-python sr-em.py
-```
-
-**Finding serial ports on Windows**
-To find the right `COM` port in PowerShell:
+**Finding serial ports**
+To find serial devices on Linux/macOS, check `/dev/` entries (for example `/dev/ttyUSB0`, `/dev/ttyS0`, or `/dev/ttyACM0`). On many systems `dmesg` and `ls /dev/tty*` are useful.
 
 ```
-Get-WmiObject Win32_SerialPort | Select-Object DeviceID,Caption
-```
-
-or use
-
-```
-mode
+ls /dev/tty*
+dmesg | grep -i tty
 ```
 
 **Testing without hardware (simulation)**
@@ -150,7 +134,7 @@ def read_modbus_values(slave_id, registers):
 **Common Troubleshooting**
 - Serial connection fails:
   - **Check**: `CONFIG['modbus']['port']` and the adapter LED/connection.
-  - **Windows**: Ensure no other program (serial terminal) has the COM port open.
+  - **Check**: Ensure no other program (serial terminal) has the serial port open.
   - **Permissions**: On Linux you'll often need `dialout`/tty permissions (use `sudo` or add your user to the `dialout` group).
 
 - Reads give `0.0` or NaNs:
