@@ -33,11 +33,24 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+
 **Configuration (Basic)**
+
+```
+    "modbus": {
+        "port": "/dev/ttyUSB0",
+        "baudrate": 19200,
+        "bytesize": 8,
+        "parity": "E",
+        "stopbits": 1,
+        "timeout": 2.0
+    },
+```
+
 Open `sr-em.py` and inspect the `CONFIG` dictionary near the top. Important keys:
 
 - `modbus`:
-  - `port`: Serial device path. On Windows use `COMx` (for example `COM3`). On Linux/macOS use `/dev/ttyUSB0` etc.
+  - `port`: Serial device path. On Linux use `/dev/ttyUSBx` (for example `/dev/ttyUSB0`).
   - `baudrate`: e.g. `19200`.
   - `bytesize`, `parity`, `stopbits`, `timeout`: typical Modbus settings — the defaults in `sr-em.py` are common for many meters (8, `E`, 1, 2.0).
 
