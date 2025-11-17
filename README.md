@@ -57,10 +57,11 @@ Open `sr-em.py` and inspect the `CONFIG` dictionary near the top. Important keys
 - `nodes`: A mapping of Modbus slave IDs to the registers you want to read. Example from `sr-em.py`:
 
 ```
-"nodes": {
-    1: {"Energy": 3960, "Power": 3902, "Current": 3912},
-    2: {"Energy": 158, "Power": 100, "Voltage": 140, "Current": 148, "Frequency": 156, "PowerFactor": 116},
-}
+    "nodes": {
+        1: {"Energy": 3960, "Power": 3902, "Current": 3912},
+        2: {"Energy": 158, "Power": 100, "Voltage": 140, "Current": 148, "Frequency": 156, "PowerFactor": 116},
+        3: {"Energy": 158, "Power": 100, "Voltage": 140, "Current": 148, "Frequency": 156, "PowerFactor": 116},
+    }
 ```
 
 - `read_interval`: Polling interval in seconds.
