@@ -150,23 +150,6 @@ def read_modbus_values(slave_id, registers):
 2. Confirm the meter stores values as 32-bit floats (or adjust the code to read integers and apply scaling).
 3. If your meter uses holding registers at half-word offsets (e.g., energy split across multiple registers with scaling), implement a custom read and conversion function in `sr-em.py`.
 
-**Logging and Improvements**
-- Consider adding structured logging instead of prints (Python `logging` module).
-- Add a configuration loader to read `sr-em.config` or a JSON/YAML file so you don't edit `sr-em.py` directly.
-- Add command-line flags to choose a single meter to poll for debugging.
-
-**Contributing**
-- Make changes in a branch, add tests if you change logic, and open a PR describing the change.
-
-**License**
-- Add your preferred license if you intend to share the project publicly.
-
----
-
-If you'd like, I can:
-- add a configuration loader for `sr-em.config` (YAML/JSON),
-- add a mock mode for offline testing, or
-- update `Om2mHandler.py` to include a stub `create_cin` for local testing.
-
-Tell me which of those you want next and I will implement it.
+**Developer**
+Himanshu Fanibhare
 
