@@ -151,5 +151,6 @@ def read_modbus_values(slave_id, registers):
 3. If your meter uses holding registers at half-word offsets (e.g., energy split across multiple registers with scaling), implement a custom read and conversion function in `sr-em.py`.
 
 **Developer**
+
 Himanshu Fanibhare
 
